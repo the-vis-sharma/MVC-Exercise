@@ -10,12 +10,7 @@ public class EventService {
 
     private static List<Event> allEvents = new ArrayList<>();
 
-    public void addEvent(String name, String city, EventType type, double price) {
-        Event event = new Event();
-        event.setName(name);
-        event.setCity(city);
-        event.setType(type);
-        event.setPrice(price);
+    public void addEvent(Event event) {
         allEvents.add(event);
     }
 

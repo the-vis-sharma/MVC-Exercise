@@ -42,26 +42,24 @@
         <div class="card">
             <div class="card-body">
                 <h2>Add Event</h2>
-                <form action="/events/add" method="post">
+                <form:form modelAttribute="event" action="/events/add" method="post">
                     <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Event Name">
+                        <form:input path="name" class="form-control" placeholder="Event Name"/>
                     </div>
                     <div class="form-group">
-                        <input type="city" name="city" class="form-control" placeholder="City">
+                        <form:input path="city" class="form-control" placeholder="City"/>
                     </div>
                     <div class="form-group">
                         <label>Event Type</label>
-                        <select name="type" class="form-control">
-                            <c:forEach var="type" items="${types}">
-                                <option value="${type}">${type}</option>
-                            </c:forEach>
-                        </select>
+                        <form:select path="type" class="form-control">
+                            <form:options items="${eventTypes}"/>
+                        </form:select>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="price" class="form-control" placeholder="Price">
+                        <form:input path="price" class="form-control" placeholder="Price"/>
                     </div>
                     <button type="submit" class="btn btn-primary">Add Event</button>
-                </form>
+                </form:form>
             </div>
         </div>
     </div>

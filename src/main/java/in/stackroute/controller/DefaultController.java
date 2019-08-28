@@ -1,8 +1,10 @@
 package in.stackroute.controller;
 
+import in.stackroute.model.Event;
 import in.stackroute.model.EventType;
 import in.stackroute.services.EventService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,12 +16,18 @@ import java.util.List;
 public class DefaultController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getEventTypes() {
+    public ModelAndView displayForm() {
         ModelAndView model = new ModelAndView();
-        EventService service = new EventService();
-        List<EventType> types = service.getEventTypes();
-        model.addObject("types", types);
+        Event event = new Event();
+        model.addObject("event", event);
         model.setViewName("home");
         return model;
+    }
+
+    @ModelAttribute("eventTypes")
+    public List<EventType> getEventTypes() {
+        EventService service = new EventService();
+        List<EventType> types = service.getEventTypes();
+        return types;
     }
 }
