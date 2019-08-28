@@ -1,4 +1,4 @@
-package in.stackroute.classes;
+package in.stackroute.model;
 
 public class Event {
     private String name;

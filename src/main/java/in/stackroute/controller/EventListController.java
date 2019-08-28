@@ -1,24 +1,26 @@
-package in.stackroute.controllers;
+package in.stackroute.controller;
 
-import in.stackroute.classes.Event;
+import in.stackroute.model.Event;
 import in.stackroute.services.EventService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
-@RequestMapping(value = "/events/detail")
-public class EventDetailController {
+@RequestMapping(value = "events/all")
+public class EventListController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getEventDetail(@RequestParam("name") String name) {
+    public ModelAndView getEventList() {
         ModelAndView model = new ModelAndView();
         EventService service = new EventService();
-        Event event = service.getEventByName(name);
-        model.addObject("event", event);
-        model.setViewName("event-detail");
+        List<Event> allEvents = service.getAllEvents();
+        model.addObject("list", allEvents);
+        model.setViewName("list-events");
         return model;
     }
+
 }

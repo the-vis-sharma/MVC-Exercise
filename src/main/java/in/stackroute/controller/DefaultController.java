@@ -1,6 +1,6 @@
-package in.stackroute.controllers;
+package in.stackroute.controller;
 
-import in.stackroute.classes.EventType;
+import in.stackroute.model.EventType;
 import in.stackroute.services.EventService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

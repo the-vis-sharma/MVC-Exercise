@@ -1,7 +1,7 @@
 package in.stackroute.services;
 
-import in.stackroute.classes.Event;
-import in.stackroute.classes.EventType;
+import in.stackroute.model.Event;
+import in.stackroute.model.EventType;
 
 import java.util.ArrayList;
 import java.util.List;

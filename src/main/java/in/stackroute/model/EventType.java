@@ -1,4 +1,4 @@
-package in.stackroute.classes;
+package in.stackroute.model;
 
 public enum EventType {
     Cricket,
