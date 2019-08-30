@@ -1,12 +1,13 @@
 package in.stackroute.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "events")
 public class Event {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int eventId;
     private String name;
     private double price;

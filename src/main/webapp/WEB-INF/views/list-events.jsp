@@ -35,6 +35,10 @@
                 </li>
             </ul>
         </div>
+        <form class="form-inline" action="search">
+            <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </nav>
 </header>
 <div class="container">
@@ -43,7 +47,7 @@
             <h2>Event List</h2>
         <ul class="list-group">
             <c:forEach var="event" items="${list}">
-                <li class="list-group-item list-group-item-action"><a class="d-flex justify-content-between align-items-center" href="/events/detail?name=${event.name}">${event.name} <span class="badge badge-primary badge-pill">${event.price}</span></a></li>
+                <li class="list-group-item list-group-item-action"><a class="d-flex justify-content-between align-items-center" href="/events/detail?id=${event.eventId}">${event.name} <span class="badge badge-primary badge-pill">${event.price}</span></a></li>
             </c:forEach>
         </ul>
         </div>

@@ -2,6 +2,7 @@ package in.stackroute.controller;
 
 import in.stackroute.model.Event;
 import in.stackroute.services.EventService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,11 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/events/detail")
 public class EventDetailController {
 
+    @Autowired
+    private EventService eventService;
+
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getEventDetail(@RequestParam("name") String name) {
+    public ModelAndView getEventDetail(@RequestParam("id") int id) {
         ModelAndView model = new ModelAndView();
-        EventService service = new EventService();
-        Event event = service.getEventByName(name);
+        Event event = eventService.getEventById(id);
         model.addObject("event", event);
         model.setViewName("event-detail");
         return model;

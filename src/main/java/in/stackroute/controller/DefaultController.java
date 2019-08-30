@@ -1,8 +1,9 @@
 package in.stackroute.controller;
 
 import in.stackroute.model.Event;
-import in.stackroute.model.EventType;
 import in.stackroute.services.EventService;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +16,11 @@ import java.util.List;
 @RequestMapping(value = "/")
 public class DefaultController {
 
+    private static final Logger logger = Logger.getLogger(DefaultController.class);
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView displayForm() {
+        logger.info("Default request received");
         ModelAndView model = new ModelAndView();
         Event event = new Event();
         model.addObject("event", event);

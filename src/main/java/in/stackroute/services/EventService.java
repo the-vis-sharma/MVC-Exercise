@@ -1,17 +1,21 @@
 package in.stackroute.services;
 
+import in.stackroute.dao.EventDAOImp;
 import in.stackroute.model.Event;
-import in.stackroute.model.EventType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class EventService {
 
-    private static List<Event> allEvents = new ArrayList<>();
+    @Autowired
+    private EventDAOImp eventDAOImp;
 
     public void addEvent(Event event) {
-        allEvents.add(event);
+        eventDAOImp.insertEvent(event);
     }
 
     public List<String> getEventTypes() {
@@ -22,20 +26,16 @@ public class EventService {
         return types;
     }
 
-    public Event getEventByName(String name) {
-        for( Event event : allEvents) {
-            if(event.getName().contains(name)) {
-                return event;
-            }
-        }
-        return null;
+    public Event getEventById(int id) {
+        return eventDAOImp.getEventDetail(id);
+    }
+
+    public List<Event> searchEvent(String query) {
+        return eventDAOImp.searchEvent(query);
     }
 
     public List<Event> getAllEvents() {
-        return allEvents;
+        return eventDAOImp.getAllEvents();
     }
 
-    public void setAllEvents(List<Event> allEvents) {
-        this.allEvents = allEvents;
-    }
 }
