@@ -25,9 +25,9 @@ public class DefaultController {
     }
 
     @ModelAttribute("eventTypes")
-    public List<EventType> getEventTypes() {
+    public List<String> getEventTypes() {
         EventService service = new EventService();
-        List<EventType> types = service.getEventTypes();
+        List<String> types = service.getEventTypes();
         return types;
     }
 }

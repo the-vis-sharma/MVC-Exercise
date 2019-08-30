@@ -1,10 +1,17 @@
 package in.stackroute.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Event {
+
+    @Id
+    private int eventId;
     private String name;
     private double price;
     private String city;
-    private EventType type;
+    private String type;
 
     public String getName() {
         return name;
@@ -30,11 +37,19 @@ public class Event {
         this.city = city;
     }
 
-    public EventType getType() {
+    public int getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(int eventId) {
+        this.eventId = eventId;
+    }
+
+    public String getType() {
         return type;
     }
 
-    public void setType(EventType type) {
+    public void setType(String type) {
         this.type = type;
     }
 }

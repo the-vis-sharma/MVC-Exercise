@@ -14,11 +14,11 @@ public class EventService {
         allEvents.add(event);
     }
 
-    public List<EventType> getEventTypes() {
-        List<EventType> types = new ArrayList<>();
-        types.add(EventType.Cricket);
-        types.add(EventType.Football);
-        types.add(EventType.Badminton);
+    public List<String> getEventTypes() {
+        List<String> types = new ArrayList<>();
+        types.add("Cricket");
+        types.add("Football");
+        types.add("Badminton");
         return types;
     }
 
